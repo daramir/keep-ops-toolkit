@@ -127,3 +127,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Project specific files and folders
+data-backups/sample-data/
+data-backups/init-vars.sh
+data-backups/rclone.conf

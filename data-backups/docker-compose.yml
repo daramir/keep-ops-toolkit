@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  # If you run multiple nodes on the same instance, you can copy/paste the 
+  # entire section below(lines 8-20) and change 
+  # the service name below as, for example
+  #keep-ops-toolkit-data-backups-ecdsa:
+  keep-ops-toolkit-data-backups:
+    image: keep-ops-toolkit-data-backups
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    entrypoint: sh /app/bin/docker-cron.sh
+    user: "appuser"
+    volumes:
+      - ./init-vars.sh:/app/cfg/init-vars.sh
+      - ./rclone.conf:/home/appuser/.config/rclone/rclone.conf
+      # Load up your main folder or individual folders here, examples below
+      # - /home/ubuntu/keep-ecdsa:/home/appuser/keep-backups
+      # - /mnt/secure-volume/persistence:/home/appuser/keep-backups/persistence
+      - ./sample-data:/home/appuser/keep-backups
