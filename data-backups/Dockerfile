@@ -1,7 +1,7 @@
 FROM debian:buster-slim
 
 # make sure we have cron
-RUN apt-get update && apt-get install -y cron curl unzip vim
+RUN apt-get update && apt-get install -y cron curl unzip
 # install rclone
 RUN curl https://rclone.org/install.sh | bash
 
