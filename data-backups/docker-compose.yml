@@ -7,6 +7,8 @@ services:
   #keep-ops-toolkit-data-backups-ecdsa:
   keep-ops-toolkit-data-backups:
     image: keep-ops-toolkit-data-backups
+    container_name: data-backups-rb
+    restart: unless-stopped
     build:
       context: .
       dockerfile: ./Dockerfile
@@ -18,4 +20,5 @@ services:
       # Load up your main folder or individual folders here, examples below
       # - /home/ubuntu/keep-ecdsa:/home/appuser/keep-backups
       # - /mnt/secure-volume/persistence:/home/appuser/keep-backups/persistence
-      - ./sample-data:/home/appuser/keep-backups
+      - ./sample-data:/home/appuser/keep-backups:ro
+      # note the :ro at the end to make the mount read-only
