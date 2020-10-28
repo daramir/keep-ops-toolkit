@@ -8,5 +8,6 @@ export NODE_TYPE='random-beacon'
 export REMOTE_NAME='s3-keep-1-ropsten'
 
 export OPERATOR_ADDRESS='0x1'
-# BUCKET_PATH: include bucket name
-export BUCKET_PATH="s3-bucket-keep-ropsten/${OPERATOR_ADDRESS}/$NODE_TYPE"
+
+export BUCKET_NAME="s3-bucket-keep-ropsten"
+export BUCKET_PATH="${OPERATOR_ADDRESS}/$NODE_TYPE"
