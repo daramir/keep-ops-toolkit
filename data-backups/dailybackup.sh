@@ -7,5 +7,5 @@
 echo "dailybackup-START: Starting backup of $OPERATOR_ADDRESS:$NODE_TYPE at $DATA_FOLDER_PATH"
 #Daily Backups
 rclone copy $DATA_FOLDER_PATH/persistence $REMOTE_NAME:$BUCKET_NAME/$BUCKET_PATH/daily/current \
- --backup-dir $REMOTE_NAME:$BUCKET_NAME/$BUCKET_PATH/daily/`date -I`
+ --backup-dir $REMOTE_NAME:$BUCKET_NAME/$BUCKET_PATH/daily/`date -I` --log-level INFO
 echo "dailybackup-END: $(date) backed up."
