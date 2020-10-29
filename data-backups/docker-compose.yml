@@ -12,7 +12,7 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    entrypoint: sh /app/bin/docker-cron.sh
+    entrypoint: /app/bin/docker-cron.sh
     user: "appuser"
     volumes:
       - ./init-vars.sh:/app/cfg/init-vars.sh

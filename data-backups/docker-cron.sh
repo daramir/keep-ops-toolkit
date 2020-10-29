@@ -24,4 +24,4 @@ crontab /var/spool/cron/crontabs/appuser
 # Displaying logs
 # Useful when executing `docker logs -f`
 trap 'exit 143' INT TERM # exit = 128 + 15 (SIGTERM)
-tail -f /app/logs/rclone-crontab.log & ; wait
+tail -f /app/logs/rclone-crontab.log & wait ${!}
