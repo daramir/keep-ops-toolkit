@@ -7,11 +7,12 @@ RUN curl https://rclone.org/install.sh | bash
 
 WORKDIR /app
 ADD ./docker-cron.sh ./dailybackup.sh ./datasync.sh  ./bin/
-RUN mkdir logs
+RUN chmod +x ./bin/docker-cron.sh
+RUN mkdir logs 
 
 # prepare cron permissions
-RUN chgrp crontab /usr/bin/crontab
-RUN chmod g+s /usr/bin/crontab
+RUN chgrp crontab /usr/bin/crontab \
+    && chmod g+s /usr/bin/crontab
 RUN touch /var/spool/cron/crontabs/appuser
 RUN echo "appuser"  > /etc/cron.allow
 RUN chmod gu+s /usr/sbin/cron \
