@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   # If you run multiple nodes on the same instance, you can copy/paste the 
-  # entire section below(lines 8-20) and change 
+  # entire entry below(lines 8-20) and change 
   # the service name below as, for example
   #keep-ops-toolkit-data-backups-ecdsa:
   keep-ops-toolkit-data-backups:
@@ -14,6 +14,11 @@ services:
       dockerfile: ./Dockerfile
     entrypoint: /app/bin/docker-cron.sh
     user: "appuser"
+    logging:
+      # If you don't have/want to use loki, use the default `driver: json-file`
+      driver: loki
+      options:
+        loki-url: "http://127.0.0.1:3100/loki/api/v1/push"
     volumes:
       - ./init-vars.sh:/app/cfg/init-vars.sh
       - ./rclone.conf:/home/appuser/.config/rclone/rclone.conf
