@@ -15,6 +15,7 @@ services:
     entrypoint: /app/bin/docker-cron.sh
     user: "appuser"
     logging:
+      # below is the config as per mutedtommy's https://medium.com/@hr12rtk/keep-random-beacon-node-monitoring-grafana-prometheus-and-loki-4a4b669b31ea
       # If you don't have/want to use loki, use the default `driver: json-file`
       driver: loki
       options:
