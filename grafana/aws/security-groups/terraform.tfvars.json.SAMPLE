@@ -1,0 +1,10 @@
+{
+  "aws_region": "us-north-1",
+  "aws_vpc_id": "vpc-bbbbbbbb",
+  "grafana_cloud_static_ips": [
+    "52.189.69.217/32",
+    "35.195.32.148/32",
+    "34.75.233.178/32",
+    "104.198.7.45/32"
+  ]
+}
